@@ -1,0 +1,12 @@
+{
+    "name": "ardxSimulation",
+    "description": "Flows comparible to the ARDX kit experiments",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flow.json",
+            "credentialsFile": "flow_cred.json"
+        }
+    }
+}
