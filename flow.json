@@ -1,1 +1,5120 @@
-[]
+[
+    {
+        "id": "2142dbf6.6e079c",
+        "type": "tab",
+        "label": "Blink",
+        "disabled": false,
+        "info": "Multiple ways to blink an LED. Or blink (toggle) a dashboard element."
+    },
+    {
+        "id": "fb151912.0285c8",
+        "type": "tab",
+        "label": "Multiple LEDs",
+        "disabled": false,
+        "info": "The blink tab explores multiple ways of controlling the state of a single output (LED). It shows that it is easy to independently control multiple LEDs. It is only necessary to write a new flow for each output to be controlled. This tab explores methods of synchronously controlling multiple outputs.\n"
+    },
+    {
+        "id": "70c450bd.6fe6e",
+        "type": "subflow",
+        "name": "simLED",
+        "info": "Simulated single LED using a dashboard text node. Internally this controls the state by setting the text content colour to the defined \"On\" and \"Off\" colors, based on a boolean input payload value.\n\nUses flow.ON_COLOUR and flow.OFF_COLOUR context properties.",
+        "category": "dashboard",
+        "in": [
+            {
+                "x": 80,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "c01aef7a.8c683"
+                    },
+                    {
+                        "id": "89695684.13c62"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "label",
+                "type": "str",
+                "value": "led"
+            },
+            {
+                "name": "ON_COLOUR",
+                "type": "str",
+                "value": "red"
+            },
+            {
+                "name": "OFF_COLOUR",
+                "type": "str",
+                "value": "white"
+            }
+        ],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "state"
+        ]
+    },
+    {
+        "id": "12108ba.004c674",
+        "type": "subflow",
+        "name": "simpLED",
+        "info": "Simple LED simulation, turned \"on\" and \"off\" using true and false payloads",
+        "category": "dashboard",
+        "in": [
+            {
+                "x": 100,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "d9abeee1.bc2868"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "label",
+                "type": "str",
+                "value": "led"
+            },
+            {
+                "name": "ON_COLOUR",
+                "type": "str",
+                "value": "red"
+            },
+            {
+                "name": "OFF_COLOUR",
+                "type": "str",
+                "value": "white"
+            }
+        ],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "state"
+        ]
+    },
+    {
+        "id": "aacf84f1.d893c8",
+        "type": "subflow",
+        "name": "delTrueFalse",
+        "info": "Wait msg.delay (or 50) milliseconds, then send separate true and false messages",
+        "category": "function",
+        "in": [
+            {
+                "x": 60,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "3ca227d0.f2313"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 500,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "1700afac.87d508",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 500,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "3a491729.b063c8",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "trigger"
+        ],
+        "outputLabels": [
+            "false",
+            "true"
+        ]
+    },
+    {
+        "id": "8911e3f.fa2ea2",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Blink",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "414b56c5.cc808",
+        "type": "ui_group",
+        "z": "",
+        "name": "LED",
+        "tab": "8911e3f.fa2ea2",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5c58e423.c582dc",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "bcb9e7f5.3dfb48",
+        "type": "ui_group",
+        "z": "",
+        "name": "Dynamic Blink",
+        "tab": "8911e3f.fa2ea2",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3c99f161.8e3a3e",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Multiple LEDs",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f5b45bce.519be",
+        "type": "ui_group",
+        "z": "",
+        "name": "LED Groups",
+        "tab": "3c99f161.8e3a3e",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "975c1413.d24a4",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "720c7a2.e3a0e04"
+            ]
+        ]
+    },
+    {
+        "id": "720c7a2.e3a0e04",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "648c467a.455a78",
+                "a4e0909f.3c3dc8"
+            ]
+        ]
+    },
+    {
+        "id": "648c467a.455a78",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "8dd603ae.477d28"
+            ]
+        ]
+    },
+    {
+        "id": "8dd603ae.477d28",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "white",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "655b356b.f2201c",
+                "a4e0909f.3c3dc8"
+            ]
+        ]
+    },
+    {
+        "id": "655b356b.f2201c",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "720c7a2.e3a0e04"
+            ]
+        ]
+    },
+    {
+        "id": "a4e0909f.3c3dc8",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "name": "LED 1",
+        "label": "led1",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "50b3b20.e5672d",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "64cce8df.aa4f6"
+            ]
+        ]
+    },
+    {
+        "id": "64cce8df.aa4f6",
+        "type": "trigger",
+        "z": "2142dbf6.6e079c",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "8507c67b.0527f"
+            ]
+        ]
+    },
+    {
+        "id": "8507c67b.0527f",
+        "type": "switch",
+        "z": "2142dbf6.6e079c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "2a31cfcd.54f94"
+            ],
+            [
+                "378837e3.bf2e"
+            ]
+        ]
+    },
+    {
+        "id": "2a31cfcd.54f94",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [
+                "7c5b4932.b988a8"
+            ]
+        ]
+    },
+    {
+        "id": "378837e3.bf2e",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "white",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [
+                "7c5b4932.b988a8",
+                "1ab8fa2.b160906"
+            ]
+        ]
+    },
+    {
+        "id": "7c5b4932.b988a8",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "name": "LED 2",
+        "label": "led2",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1ab8fa2.b160906",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "64cce8df.aa4f6"
+            ]
+        ]
+    },
+    {
+        "id": "caea459e.31f0b8",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 1",
+        "info": "A structure very similar to the Arduino Blink sketch, with individual delays after each state change. There is not pin number here. The LED is simulated by a dashboard text element that has an \"O\" value with the color being toggled by the blink state.",
+        "x": 130,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d0341928.49a388",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 2",
+        "info": "Use a trigger node to generate a (logical) high and low pulse. The \"On\" time is controlled by the delay configured in the trigger node, instead of needed a separate delay. That does mean that something else (the switch node) is needed to actually set the output colour value.",
+        "x": 350,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7cfd8960.363728",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "d": true,
+        "name": "interval",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 620,
+        "wires": [
+            [
+                "b61621b.462c7e"
+            ]
+        ]
+    },
+    {
+        "id": "b61621b.462c7e",
+        "type": "trigger",
+        "z": "2142dbf6.6e079c",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "838cc0a9.889e18"
+            ]
+        ]
+    },
+    {
+        "id": "838cc0a9.889e18",
+        "type": "switch",
+        "z": "2142dbf6.6e079c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 620,
+        "wires": [
+            [
+                "3be1b7c2.b327d"
+            ],
+            [
+                "f0618979.41dd6"
+            ]
+        ]
+    },
+    {
+        "id": "3be1b7c2.b327d",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 560,
+        "wires": [
+            [
+                "d935673f.3868e"
+            ]
+        ]
+    },
+    {
+        "id": "f0618979.41dd6",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "white",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 620,
+        "wires": [
+            [
+                "d935673f.3868e"
+            ]
+        ]
+    },
+    {
+        "id": "d935673f.3868e",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "name": "LED 3",
+        "label": "led3",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 810,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "eaaea157.aa3da",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 3",
+        "info": "Instead of 'looping', take advantage of the repeating event capability of the inject node. Set it to repeat every on time + off time length.\n\nLikely unexpected results will be obtained if the interval is less than the configured on time in the trigger node.",
+        "x": 110,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c19fb94a.1bce88",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "name": "Start",
+        "topic": "SETUP",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "e33e9554.6bb828"
+            ]
+        ]
+    },
+    {
+        "id": "e33e9554.6bb828",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Setup",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ON_TIME",
+                "pt": "flow",
+                "to": "900",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "OFF_TIME",
+                "pt": "flow",
+                "to": "1100",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "ON_COLOR",
+                "pt": "flow",
+                "to": "blue",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "OFF_COLOR",
+                "pt": "flow",
+                "to": "white",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "LOOP",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 740,
+        "wires": [
+            [
+                "f5074fa7.2cfb5"
+            ]
+        ]
+    },
+    {
+        "id": "f5074fa7.2cfb5",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "ON_COLOR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "ON_TIME",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "b1de992a.ed1938",
+                "97f0360e.26987"
+            ]
+        ]
+    },
+    {
+        "id": "b1de992a.ed1938",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "On Time",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "a41361e2.f31c68"
+            ]
+        ]
+    },
+    {
+        "id": "a41361e2.f31c68",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "OFF_COLOR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "OFF_TIME",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 860,
+        "wires": [
+            [
+                "df36aa91.22d438",
+                "97f0360e.26987"
+            ]
+        ]
+    },
+    {
+        "id": "df36aa91.22d438",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "d": true,
+        "name": "Off Time",
+        "pauseType": "delayv",
+        "timeout": "110",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 340,
+        "y": 860,
+        "wires": [
+            [
+                "f5074fa7.2cfb5"
+            ]
+        ]
+    },
+    {
+        "id": "97f0360e.26987",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "name": "LED 4",
+        "label": "led4",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 810,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "803097c9.025438",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 4",
+        "info": "Use the basic delay loop structure, but store information in flow (context) variables. The speed and colors can all be adjusted by changing values in the \"Setup\" node.",
+        "x": 110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "bd5d07eb.e0d438",
+        "type": "debug",
+        "z": "2142dbf6.6e079c",
+        "name": "Flow Context",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 590,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "e59c9d35.f4f998",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Get Flow Context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.ON_COLOR",
+                "pt": "msg",
+                "to": "ON_COLOR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.OFF_COLOR",
+                "pt": "msg",
+                "to": "OFF_COLOR",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.ON_TIME",
+                "pt": "msg",
+                "to": "ON_TIME",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.OFF_TIME",
+                "pt": "msg",
+                "to": "OFF_TIME",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 920,
+        "wires": [
+            [
+                "bd5d07eb.e0d438"
+            ]
+        ]
+    },
+    {
+        "id": "12dfa9d3.0c15b6",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "name": "Inspect",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 920,
+        "wires": [
+            [
+                "e59c9d35.f4f998"
+            ]
+        ]
+    },
+    {
+        "id": "f3098d6a.d66838",
+        "type": "ui_slider",
+        "z": "2142dbf6.6e079c",
+        "name": "On Time",
+        "label": "On Time",
+        "tooltip": "milliseconds to stay on",
+        "group": "bcb9e7f5.3dfb48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "NEW_ON_TIME",
+        "min": "50",
+        "max": "5000",
+        "step": "50",
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "a764aaca.26c1a8"
+            ]
+        ]
+    },
+    {
+        "id": "dd20a802.029f38",
+        "type": "ui_button",
+        "z": "2142dbf6.6e079c",
+        "name": "Initialize",
+        "group": "bcb9e7f5.3dfb48",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Start",
+        "tooltip": "Reset and start blink",
+        "color": "grey",
+        "bgcolor": "orange",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "INITIALIZE",
+        "x": 120,
+        "y": 1360,
+        "wires": [
+            [
+                "93ad1dee.53b3e8",
+                "d4b55764.035c7",
+                "528986e.9f449f8",
+                "de3c4424.a14a7",
+                "da1d057.c117d78"
+            ]
+        ]
+    },
+    {
+        "id": "3ef3b177.747476",
+        "type": "ui_slider",
+        "z": "2142dbf6.6e079c",
+        "name": "Off Time",
+        "label": "Off Time",
+        "tooltip": "milliseconds to stay off",
+        "group": "bcb9e7f5.3dfb48",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "NEW_OFF_TIME",
+        "min": "50",
+        "max": "5000",
+        "step": "50",
+        "x": 560,
+        "y": 1100,
+        "wires": [
+            [
+                "27304f4a.28716"
+            ]
+        ]
+    },
+    {
+        "id": "e141cbd6.763128",
+        "type": "ui_colour_picker",
+        "z": "2142dbf6.6e079c",
+        "name": "Off Colour",
+        "label": "Off Colour",
+        "group": "bcb9e7f5.3dfb48",
+        "format": "hex",
+        "outformat": "object",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "NEW_OFF_COLOUR",
+        "x": 570,
+        "y": 1220,
+        "wires": [
+            [
+                "31938c6f.ecc79c"
+            ]
+        ]
+    },
+    {
+        "id": "31a7e51.ed35d1a",
+        "type": "ui_colour_picker",
+        "z": "2142dbf6.6e079c",
+        "name": "On Colour",
+        "label": "On Colour",
+        "group": "bcb9e7f5.3dfb48",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": true,
+        "showAlpha": false,
+        "showLightness": false,
+        "square": "true",
+        "dynOutput": "false",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "NEW_ON_COLOR",
+        "x": 570,
+        "y": 1160,
+        "wires": [
+            [
+                "dfdbed18.a8b5f"
+            ]
+        ]
+    },
+    {
+        "id": "300d2635.d8c2c2",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "LED 5",
+        "label": "led5",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 570,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "a764aaca.26c1a8",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Store On Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "onTime",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27304f4a.28716",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Store Off Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "offTime",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfdbed18.a8b5f",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Store On Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "onColour",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31938c6f.ecc79c",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Store Off Color",
+        "rules": [
+            {
+                "t": "set",
+                "p": "offColour",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93ad1dee.53b3e8",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Default On Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1040,
+        "wires": [
+            [
+                "f3098d6a.d66838"
+            ]
+        ]
+    },
+    {
+        "id": "d4b55764.035c7",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Default Off Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1100,
+        "wires": [
+            [
+                "3ef3b177.747476"
+            ]
+        ]
+    },
+    {
+        "id": "528986e.9f449f8",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Default On Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1160,
+        "wires": [
+            [
+                "31a7e51.ed35d1a"
+            ]
+        ]
+    },
+    {
+        "id": "de3c4424.a14a7",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Default Off Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "white",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1220,
+        "wires": [
+            [
+                "e141cbd6.763128"
+            ]
+        ]
+    },
+    {
+        "id": "b0589301.9daf7",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "name": "Inspect",
+        "topic": "INSPECT",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 350,
+        "y": 1280,
+        "wires": [
+            [
+                "46db9d81.28d28c"
+            ]
+        ]
+    },
+    {
+        "id": "e6bf66a0.2c8b3",
+        "type": "debug",
+        "z": "2142dbf6.6e079c",
+        "name": "Dynamic Context",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 750,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "46db9d81.28d28c",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Get Flow Context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.onTime",
+                "pt": "msg",
+                "to": "onTime",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.offTime",
+                "pt": "msg",
+                "to": "offTime",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.onColour",
+                "pt": "msg",
+                "to": "onColour",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.offColour",
+                "pt": "msg",
+                "to": "offColour",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 1280,
+        "wires": [
+            [
+                "e6bf66a0.2c8b3"
+            ]
+        ]
+    },
+    {
+        "id": "5a782e28.1509f8",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "On Time",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 520,
+        "y": 1440,
+        "wires": [
+            [
+                "f0b6ec2b.0f5478"
+            ]
+        ]
+    },
+    {
+        "id": "5c2cad39.2763f4",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "Off Time",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 160,
+        "y": 1440,
+        "wires": [
+            [
+                "f75c779e.116bb8"
+            ]
+        ]
+    },
+    {
+        "id": "f75c779e.116bb8",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "onColour",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "onTime",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 1440,
+        "wires": [
+            [
+                "300d2635.d8c2c2",
+                "5a782e28.1509f8"
+            ]
+        ],
+        "info": "Set the \"LED\" colour, and delay time for the \"ON\" state"
+    },
+    {
+        "id": "f0b6ec2b.0f5478",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "offColour",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "offTime",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 1440,
+        "wires": [
+            [
+                "300d2635.d8c2c2",
+                "5c2cad39.2763f4"
+            ]
+        ],
+        "info": "Set the \"LED\" colour, and delay time for the \"OFF\" state"
+    },
+    {
+        "id": "da1d057.c117d78",
+        "type": "delay",
+        "z": "2142dbf6.6e079c",
+        "name": "Sync",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 270,
+        "y": 1360,
+        "wires": [
+            [
+                "f75c779e.116bb8"
+            ]
+        ],
+        "info": "Make sure that the initialization has finished setting the values for the flow context before trying to use them"
+    },
+    {
+        "id": "9a01a051.3c26a",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 5",
+        "info": "Use flow context values (variables) that can be adjusted from the dashboard will the flow is running",
+        "x": 130,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "6cd9fafc.c9eddc",
+        "type": "ui_text",
+        "z": "70c450bd.6fe6e",
+        "group": "f5b45bce.519be",
+        "order": 0,
+        "width": "1",
+        "height": "1",
+        "name": "LED",
+        "label": "${label}",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 850,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c01aef7a.8c683",
+        "type": "switch",
+        "z": "70c450bd.6fe6e",
+        "name": "Set LED State",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "684aafcf.746d4"
+            ],
+            [
+                "d160c6af.e6b9a"
+            ]
+        ]
+    },
+    {
+        "id": "5f77bb59.1c1edc",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Initialize",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "e5a17165.763c28",
+                "e1732556.c4e328",
+                "c6c2414a.efa9d",
+                "76b03129.13d938"
+            ]
+        ]
+    },
+    {
+        "id": "e5a17165.763c28",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "Init On Color",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "blue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "c2db97d6.d1fd8"
+            ]
+        ]
+    },
+    {
+        "id": "e1ca0bb8.d6936",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 1",
+        "env": [
+            {
+                "name": "label",
+                "value": "led1",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 320,
+        "wires": [],
+        "inputLabels": [
+            "state"
+        ]
+    },
+    {
+        "id": "e1732556.c4e328",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "Init Off Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "#eee",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "c2db97d6.d1fd8"
+            ]
+        ]
+    },
+    {
+        "id": "15ba5c6c.018a14",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 2",
+        "env": [
+            {
+                "name": "label",
+                "value": "led2",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c2db97d6.d1fd8",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Configuration Output",
+        "links": [
+            "88c1b863.da8328"
+        ],
+        "x": 635,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "88c1b863.da8328",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Configuration Output",
+        "links": [
+            "c2db97d6.d1fd8"
+        ],
+        "x": 635,
+        "y": 600,
+        "wires": [
+            [
+                "e1ca0bb8.d6936",
+                "15ba5c6c.018a14",
+                "94f0b271.704eb",
+                "cf7abbb4.dbf3a",
+                "3405438d.94c334",
+                "8ac39f2f.dd04d",
+                "6b2b9541.2fe25c",
+                "5953a33b.5293b4"
+            ]
+        ]
+    },
+    {
+        "id": "fed0a6e7.5d8128",
+        "type": "change",
+        "z": "70c450bd.6fe6e",
+        "name": "LED Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "OFF_COLOUR",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "6cd9fafc.c9eddc"
+            ]
+        ]
+    },
+    {
+        "id": "acfce114.cce83",
+        "type": "change",
+        "z": "70c450bd.6fe6e",
+        "name": "LED On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "ON_COLOUR",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "6cd9fafc.c9eddc",
+                "1b55b9d8.3623fe"
+            ]
+        ]
+    },
+    {
+        "id": "c6c2414a.efa9d",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "Init Other",
+        "rules": [
+            {
+                "t": "set",
+                "p": "STEP_INTERVAL",
+                "pt": "flow",
+                "to": "200",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "STEP_INTERVAL",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "372fe46e.35d984"
+            ]
+        ]
+    },
+    {
+        "id": "372fe46e.35d984",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Setup Sync",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "7d17db12.3334dc"
+            ]
+        ]
+    },
+    {
+        "id": "f116f77a.60a6e8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 400,
+        "wires": [
+            [
+                "15ba5c6c.018a14",
+                "274d42dd.cbb086"
+            ]
+        ]
+    },
+    {
+        "id": "274d42dd.cbb086",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 480,
+        "wires": [
+            [
+                "b1b1c178.1271b8",
+                "94f0b271.704eb"
+            ]
+        ]
+    },
+    {
+        "id": "b1b1c178.1271b8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "1000",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 560,
+        "wires": [
+            [
+                "2e8f3257.c0b87e",
+                "cf7abbb4.dbf3a"
+            ]
+        ]
+    },
+    {
+        "id": "2e8f3257.c0b87e",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 640,
+        "wires": [
+            [
+                "3405438d.94c334",
+                "92cfe4e3.a18138"
+            ]
+        ]
+    },
+    {
+        "id": "94f0b271.704eb",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 3",
+        "env": [
+            {
+                "name": "label",
+                "value": "led3",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "cf7abbb4.dbf3a",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 4",
+        "env": [
+            {
+                "name": "label",
+                "value": "led4",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3405438d.94c334",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 5",
+        "env": [
+            {
+                "name": "label",
+                "value": "led5",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8ac39f2f.dd04d",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 6",
+        "env": [
+            {
+                "name": "label",
+                "value": "led6",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6b2b9541.2fe25c",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 7",
+        "env": [
+            {
+                "name": "label",
+                "value": "led7",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "5953a33b.5293b4",
+        "type": "subflow:70c450bd.6fe6e",
+        "z": "fb151912.0285c8",
+        "name": "LED 8",
+        "env": [
+            {
+                "name": "label",
+                "value": "led8",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "92cfe4e3.a18138",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 720,
+        "wires": [
+            [
+                "8ac39f2f.dd04d",
+                "f36d1077.3127d8"
+            ]
+        ]
+    },
+    {
+        "id": "f36d1077.3127d8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 800,
+        "wires": [
+            [
+                "6b2b9541.2fe25c",
+                "d09a5422.5d44d8"
+            ]
+        ]
+    },
+    {
+        "id": "d09a5422.5d44d8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 880,
+        "wires": [
+            [
+                "5953a33b.5293b4",
+                "17ebfe87.83b4e9"
+            ]
+        ]
+    },
+    {
+        "id": "adade1fd.0a9dc8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Pause",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "c2db97d6.d1fd8"
+            ]
+        ]
+    },
+    {
+        "id": "76b03129.13d938",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "Turn Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "adade1fd.0a9dc8"
+            ]
+        ]
+    },
+    {
+        "id": "17ebfe87.83b4e9",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 900,
+        "wires": [
+            [
+                "e845ae21.f68b88"
+            ]
+        ]
+    },
+    {
+        "id": "e845ae21.f68b88",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 900,
+        "wires": [
+            [
+                "5953a33b.5293b4",
+                "9e3eee33.cca6a"
+            ]
+        ]
+    },
+    {
+        "id": "9e3eee33.cca6a",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 820,
+        "wires": [
+            [
+                "6b2b9541.2fe25c",
+                "1b167f45.334779"
+            ]
+        ]
+    },
+    {
+        "id": "1b167f45.334779",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 740,
+        "wires": [
+            [
+                "8ac39f2f.dd04d",
+                "323ef9fe.047f16"
+            ]
+        ]
+    },
+    {
+        "id": "323ef9fe.047f16",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 660,
+        "wires": [
+            [
+                "3405438d.94c334",
+                "fd933b28.426e78"
+            ]
+        ]
+    },
+    {
+        "id": "fd933b28.426e78",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 580,
+        "wires": [
+            [
+                "cf7abbb4.dbf3a",
+                "ca962b2c.733f88"
+            ]
+        ]
+    },
+    {
+        "id": "ca962b2c.733f88",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "94f0b271.704eb",
+                "4b269e5d.1ea5e8"
+            ]
+        ]
+    },
+    {
+        "id": "4b269e5d.1ea5e8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "15ba5c6c.018a14",
+                "fd364a64.99aac8"
+            ]
+        ]
+    },
+    {
+        "id": "fd364a64.99aac8",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "e1ca0bb8.d6936",
+                "11ce1777.38fa01"
+            ]
+        ]
+    },
+    {
+        "id": "7d17db12.3334dc",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "f116f77a.60a6e8",
+                "e1ca0bb8.d6936"
+            ]
+        ]
+    },
+    {
+        "id": "11ce1777.38fa01",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "7d17db12.3334dc"
+            ]
+        ]
+    },
+    {
+        "id": "5b5685f6.95c484",
+        "type": "function",
+        "z": "fb151912.0285c8",
+        "name": "Led Sequencer",
+        "func": "const OUTPUT_COUNT = 8;\nconst LED_ON = true;\nconst LED_OFF = false;\nconst LAST_OUTPUT = OUTPUT_COUNT - 1;\n\nlet lastOutputs = context.get(\"last_out\")||null;\nif (lastOutputs === null) {\n  // no array yet: create and populate so \"next\" step will start at the beginning\n  lastOutputs = Array(OUTPUT_COUNT);\n  lastOutputs.fill(null);\n  lastOutputs[0] = LED_OFF;\n}\n// initialize last state for \"backward\", so \"next\" will reverse to first forward state\nlet stepForward = context.get(\"step_forward\")||false;\nlet reversed = false;\n\n// Handle the end cases, where direction changes, but not the message target\nif (!stepForward && lastOutputs[0] !== null) {\n  stepForward = true;\n  lastOutputs[0] = LED_ON;\n  reversed = true;\n} else if (stepForward && lastOutputs[LAST_OUTPUT] !== null) {\n  stepForward = false;\n  lastOutputs[LAST_OUTPUT] = LED_OFF;\n  reversed = true;\n}\n\nif (reversed) {\n  // Reverse direction without changing target of message\n  context.set(\"step_forward\", stepForward);\n} else if (stepForward) {\n  // Change message target one step forward\n  lastOutputs.pop();\n  lastOutputs.unshift(null);\n} else {\n  // Change message target one step backward\n  lastOutputs.shift();\n  lastOutputs.push(null);\n}\ncontext.set(\"last_out\", lastOutputs);\n\n// [Re]generate each output message each time, because they are passed by reference,\n// and the message consumer could modify them inappropriately for the current context\nlet msgSet = Array(OUTPUT_COUNT);\nmsgSet.fill(null);\nfor (let i = 0; i < OUTPUT_COUNT; i++) {\n  if (lastOutputs[i] !== null) {\n    msgSet[i] = { \"payload\": lastOutputs[i], \"topic\": msg.topic, \"_msgid\": msg._msgid };\n  }\n}\n\nreturn msgSet;\n",
+        "outputs": 8,
+        "noerr": 0,
+        "x": 560,
+        "y": 1180,
+        "wires": [
+            [
+                "3824cdaf.4f80aa"
+            ],
+            [
+                "106270df.77f237"
+            ],
+            [
+                "8d1b64d5.a2696"
+            ],
+            [
+                "ec147e18.2b78"
+            ],
+            [
+                "aa910fd2.6e9858"
+            ],
+            [
+                "b02493bf.6ee018"
+            ],
+            [
+                "bd0b761d.3930f8"
+            ],
+            [
+                "afd279bc.ebd7d8"
+            ]
+        ]
+    },
+    {
+        "id": "85f9372a.82907",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 1140,
+        "wires": [
+            [
+                "705fb2b6.5dcad4"
+            ]
+        ]
+    },
+    {
+        "id": "1b55b9d8.3623fe",
+        "type": "debug",
+        "z": "70c450bd.6fe6e",
+        "name": "LED On",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "89695684.13c62",
+        "type": "debug",
+        "z": "70c450bd.6fe6e",
+        "name": "LED Trigger",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 220,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d160c6af.e6b9a",
+        "type": "switch",
+        "z": "70c450bd.6fe6e",
+        "name": "Detect Off Colour",
+        "property": "color",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "fed0a6e7.5d8128"
+            ],
+            [
+                "cffc539c.97b79"
+            ]
+        ]
+    },
+    {
+        "id": "684aafcf.746d4",
+        "type": "switch",
+        "z": "70c450bd.6fe6e",
+        "name": "Detect On Colour",
+        "property": "color",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 80,
+        "wires": [
+            [
+                "14491a1.f0fb7e6"
+            ],
+            [
+                "acfce114.cce83"
+            ]
+        ]
+    },
+    {
+        "id": "cffc539c.97b79",
+        "type": "change",
+        "z": "70c450bd.6fe6e",
+        "name": "Save OFF Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "OFF_COLOUR",
+                "pt": "flow",
+                "to": "color",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14491a1.f0fb7e6",
+        "type": "change",
+        "z": "70c450bd.6fe6e",
+        "name": "Save On Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ON_COLOUR",
+                "pt": "flow",
+                "to": "color",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15a22baa.c2af64",
+        "type": "ui_text",
+        "z": "12108ba.004c674",
+        "group": "f5b45bce.519be",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "name": "Simulated LED",
+        "label": "${label}",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 440,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d9abeee1.bc2868",
+        "type": "change",
+        "z": "12108ba.004c674",
+        "name": "Set State Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "msg.payload ? $env('ON_COLOUR') : $env('OFF_COLOUR')",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "15a22baa.c2af64"
+            ]
+        ],
+        "inputLabels": [
+            "LED state"
+        ],
+        "info": "Use JSONata ternary operator to select the source for the colour value from that available (subflow) properties."
+    },
+    {
+        "id": "3824cdaf.4f80aa",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 9",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.1",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "106270df.77f237",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 10",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.2",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "8d1b64d5.a2696",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 11",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.3",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "ec147e18.2b78",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 12",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.4",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "aa910fd2.6e9858",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 13",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.5",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "b02493bf.6ee018",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 14",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.6",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "bd0b761d.3930f8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 15",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.7",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "afd279bc.ebd7d8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 16",
+        "env": [
+            {
+                "name": "label",
+                "value": "l2.8",
+                "type": "str"
+            }
+        ],
+        "x": 770,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "705fb2b6.5dcad4",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1180,
+        "wires": [
+            [
+                "5b5685f6.95c484",
+                "c2373c67.24d35"
+            ]
+        ]
+    },
+    {
+        "id": "c2373c67.24d35",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Sequence Stepper",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 150,
+        "y": 1180,
+        "wires": [
+            [
+                "705fb2b6.5dcad4"
+            ]
+        ],
+        "info": "Use a delay, instead of just an injection node configured for repeat, because the incection repeat is in seconds, not milliseconds"
+    },
+    {
+        "id": "41b17fba.b8072",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "Function Sequence",
+        "info": "This structure dastically simplifies the flow, but needs a function to implement the desired pattern. The function is not large, but could be finicky to get all of the cases right.\n\nThis flow also looses the ability to set the LED state colors by external commands. That has nothing to do with the flow structure itself. The limit is on the simpler subflow used to implement the simulated LED. The advantage being that no run time initialization of the LEDs is needed.",
+        "x": 150,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "615b7964.d36fb",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "Indiviual steps",
+        "info": "Turn on each LED in sequence, until they are all on, then reverse the sequence until they are all off. This uses basic nodes in a sequence, effectively a clocked state machine. This makes for a lot of connected nodes, though the pattern is simple.",
+        "x": 170,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "811865e3.758898",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 17",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.1",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "bf8019e0.55d838",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 18",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.2",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "50d635ab.d0f8f4",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 19",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.3",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "81f65432.572ff8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 20",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.4",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "588b2a5e.7e53d4",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 21",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.5",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "ce98ddbb.3c4ba8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 22",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.6",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "8967df2.b345fa",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 23",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.7",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "5a7f3c5.d842444",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 24",
+        "env": [
+            {
+                "name": "label",
+                "value": "l3.8",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "ce3e35d3.92d9d",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 2020,
+        "wires": [
+            [
+                "3e918bc5.0ddc14"
+            ]
+        ]
+    },
+    {
+        "id": "617bafd9.d5d93",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 17 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1460,
+        "wires": [
+            [
+                "811865e3.758898"
+            ]
+        ]
+    },
+    {
+        "id": "d37df65a.a860a",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 17 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1500,
+        "wires": [
+            [
+                "811865e3.758898"
+            ]
+        ]
+    },
+    {
+        "id": "e07aa64a.9e4d1",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 18 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1540,
+        "wires": [
+            [
+                "bf8019e0.55d838"
+            ]
+        ]
+    },
+    {
+        "id": "51ec9ae1.2ede74",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 18 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1580,
+        "wires": [
+            [
+                "bf8019e0.55d838"
+            ]
+        ]
+    },
+    {
+        "id": "a66d6561.f40328",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 19 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1620,
+        "wires": [
+            [
+                "50d635ab.d0f8f4"
+            ]
+        ]
+    },
+    {
+        "id": "23e20c08.5ef14c",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 19 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1660,
+        "wires": [
+            [
+                "50d635ab.d0f8f4"
+            ]
+        ]
+    },
+    {
+        "id": "aef4cca.5421b3",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 20 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1700,
+        "wires": [
+            [
+                "81f65432.572ff8"
+            ]
+        ]
+    },
+    {
+        "id": "fa2cba7a.a4da6",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 20 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1740,
+        "wires": [
+            [
+                "81f65432.572ff8"
+            ]
+        ]
+    },
+    {
+        "id": "83d021a2.1acae8",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 21 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1780,
+        "wires": [
+            [
+                "588b2a5e.7e53d4"
+            ]
+        ]
+    },
+    {
+        "id": "452bada6.6d3d6c",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 21 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1820,
+        "wires": [
+            [
+                "588b2a5e.7e53d4"
+            ]
+        ]
+    },
+    {
+        "id": "71462da5.5b656c",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 22 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1860,
+        "wires": [
+            [
+                "ce98ddbb.3c4ba8"
+            ]
+        ]
+    },
+    {
+        "id": "76fd98e2.328468",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 22 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1900,
+        "wires": [
+            [
+                "ce98ddbb.3c4ba8"
+            ]
+        ]
+    },
+    {
+        "id": "31c47ab0.18163e",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 23 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1940,
+        "wires": [
+            [
+                "8967df2.b345fa"
+            ]
+        ]
+    },
+    {
+        "id": "771e432e.8ecafc",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 23 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1980,
+        "wires": [
+            [
+                "8967df2.b345fa"
+            ]
+        ]
+    },
+    {
+        "id": "e7725607.bc9e58",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 24 On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 2020,
+        "wires": [
+            [
+                "5a7f3c5.d842444"
+            ]
+        ]
+    },
+    {
+        "id": "26ddc405.179ad4",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "LED 24 Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 2060,
+        "wires": [
+            [
+                "5a7f3c5.d842444"
+            ]
+        ]
+    },
+    {
+        "id": "52f3dcff.c39374",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1520,
+        "wires": [
+            [
+                "d37df65a.a860a",
+                "e07aa64a.9e4d1",
+                "33367119.e32ff6"
+            ]
+        ]
+    },
+    {
+        "id": "3e918bc5.0ddc14",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 2100,
+        "wires": [
+            [
+                "d9cb6e70.0618d"
+            ]
+        ]
+    },
+    {
+        "id": "33367119.e32ff6",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1600,
+        "wires": [
+            [
+                "c1f7bf01.367838",
+                "51ec9ae1.2ede74",
+                "a66d6561.f40328"
+            ]
+        ]
+    },
+    {
+        "id": "c1f7bf01.367838",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1680,
+        "wires": [
+            [
+                "306c124.affa9ee",
+                "23e20c08.5ef14c",
+                "aef4cca.5421b3"
+            ]
+        ]
+    },
+    {
+        "id": "306c124.affa9ee",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1760,
+        "wires": [
+            [
+                "c1199a4c.202838",
+                "fa2cba7a.a4da6",
+                "83d021a2.1acae8"
+            ]
+        ]
+    },
+    {
+        "id": "c1199a4c.202838",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1840,
+        "wires": [
+            [
+                "2ca924ce.6b0dbc",
+                "452bada6.6d3d6c",
+                "71462da5.5b656c"
+            ]
+        ]
+    },
+    {
+        "id": "2ca924ce.6b0dbc",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 1920,
+        "wires": [
+            [
+                "46b11623.fc5db",
+                "76fd98e2.328468",
+                "31c47ab0.18163e"
+            ]
+        ]
+    },
+    {
+        "id": "46b11623.fc5db",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 2000,
+        "wires": [
+            [
+                "7767ef.4ec2381",
+                "771e432e.8ecafc",
+                "e7725607.bc9e58"
+            ]
+        ]
+    },
+    {
+        "id": "7767ef.4ec2381",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 2080,
+        "wires": [
+            [
+                "26ddc405.179ad4",
+                "d9cb6e70.0618d"
+            ]
+        ]
+    },
+    {
+        "id": "a98f4614.a5d198",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "LED 17 On",
+        "links": [
+            "d9cb6e70.0618d"
+        ],
+        "x": 415,
+        "y": 1440,
+        "wires": [
+            [
+                "617bafd9.d5d93",
+                "52f3dcff.c39374"
+            ]
+        ]
+    },
+    {
+        "id": "d9cb6e70.0618d",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "LED 17 On",
+        "links": [
+            "a98f4614.a5d198"
+        ],
+        "x": 515,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "41253565.95a274",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "One at a time",
+        "info": "Turn one LED on at time, turning it off again when turning on the next LED. Each step turns off one LED and turns on another.\n\nTo keep the pattern of wires simple, link nodes are used to wrap from the bottom to the top.",
+        "x": 130,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "3ca227d0.f2313",
+        "type": "delay",
+        "z": "aacf84f1.d893c8",
+        "name": "Delay and Split",
+        "pauseType": "delayv",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "3a491729.b063c8",
+                "1700afac.87d508"
+            ]
+        ]
+    },
+    {
+        "id": "3a491729.b063c8",
+        "type": "change",
+        "z": "aacf84f1.d893c8",
+        "name": "True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1700afac.87d508",
+        "type": "change",
+        "z": "aacf84f1.d893c8",
+        "name": "False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7bf2d5bd.7ab374",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2240,
+        "wires": [
+            [
+                "9d569878.9852"
+            ],
+            [
+                "1f9f7495.3931eb",
+                "62e69029.dc4f38"
+            ]
+        ]
+    },
+    {
+        "id": "9d569878.9852",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 25",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.1",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "1f9f7495.3931eb",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 26",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.2",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "511ac5f4.674c4c",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 27",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.3",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "b74ceed.c4b1f9",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 28",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.4",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "be29ec18.f4324",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 29",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.5",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "6cecc39e.8d64e4",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 30",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.6",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "be1124fa.2fc1e8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 31",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.7",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "a1b7d0e0.1237b8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 32",
+        "env": [
+            {
+                "name": "label",
+                "value": "l4.8",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "62e69029.dc4f38",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2280,
+        "wires": [
+            [
+                "1f9f7495.3931eb"
+            ],
+            [
+                "511ac5f4.674c4c",
+                "730f9d58.41846c"
+            ]
+        ]
+    },
+    {
+        "id": "730f9d58.41846c",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2320,
+        "wires": [
+            [
+                "511ac5f4.674c4c"
+            ],
+            [
+                "b74ceed.c4b1f9",
+                "e2f7219f.357748"
+            ]
+        ]
+    },
+    {
+        "id": "e2f7219f.357748",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2360,
+        "wires": [
+            [
+                "b74ceed.c4b1f9"
+            ],
+            [
+                "be29ec18.f4324",
+                "1beb0337.f96775"
+            ]
+        ]
+    },
+    {
+        "id": "1beb0337.f96775",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2400,
+        "wires": [
+            [
+                "be29ec18.f4324"
+            ],
+            [
+                "6cecc39e.8d64e4",
+                "aaefa8d7.02b088"
+            ]
+        ]
+    },
+    {
+        "id": "aaefa8d7.02b088",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2440,
+        "wires": [
+            [
+                "6cecc39e.8d64e4"
+            ],
+            [
+                "be1124fa.2fc1e8",
+                "21d792cc.dcccee"
+            ]
+        ]
+    },
+    {
+        "id": "21d792cc.dcccee",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2480,
+        "wires": [
+            [
+                "be1124fa.2fc1e8"
+            ],
+            [
+                "a1b7d0e0.1237b8",
+                "4d6912c9.cde41c"
+            ]
+        ]
+    },
+    {
+        "id": "4d6912c9.cde41c",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 550,
+        "y": 2520,
+        "wires": [
+            [
+                "a1b7d0e0.1237b8"
+            ],
+            [
+                "945e37d5.a11d78"
+            ]
+        ]
+    },
+    {
+        "id": "945e37d5.a11d78",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "LED 25",
+        "links": [
+            "857c4e7d.2040d8"
+        ],
+        "x": 715,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "857c4e7d.2040d8",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "LED 25",
+        "links": [
+            "945e37d5.a11d78"
+        ],
+        "x": 575,
+        "y": 2200,
+        "wires": [
+            [
+                "9d569878.9852",
+                "7bf2d5bd.7ab374"
+            ]
+        ]
+    },
+    {
+        "id": "68527454.316b7c",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 2560,
+        "wires": [
+            [
+                "945e37d5.a11d78"
+            ]
+        ]
+    },
+    {
+        "id": "32239b58.ada29c",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 2560,
+        "wires": [
+            [
+                "68527454.316b7c"
+            ]
+        ]
+    },
+    {
+        "id": "2d1cb089.20849",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "One at a time",
+        "info": "Refactor a common section to a subflow, simplifying the pattern",
+        "x": 130,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "f9b019af.7ee688",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 33",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.1",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "11010b69.745cbd",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 34",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.2",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "1f04250c.202d33",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 35",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.3",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2800,
+        "wires": []
+    },
+    {
+        "id": "d911ff5d.c554b",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 36",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.4",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "43785be8.01b034",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 37",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.5",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2920,
+        "wires": []
+    },
+    {
+        "id": "b5374e10.18ffc",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 38",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.6",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 2980,
+        "wires": []
+    },
+    {
+        "id": "7081e1e0.a296b8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 39",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.7",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "9342c434.c1146",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 40",
+        "env": [
+            {
+                "name": "label",
+                "value": "l5.8",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "7343ca1.ed8cdb4",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 3040,
+        "wires": [
+            [
+                "1f04250c.202d33",
+                "b5374e10.18ffc"
+            ],
+            [
+                "713dff6b.6ee488"
+            ]
+        ]
+    },
+    {
+        "id": "eb5e6183.e0136",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 2740,
+        "wires": [
+            [
+                "d911ff5d.c554b",
+                "43785be8.01b034"
+            ],
+            [
+                "1f04250c.202d33",
+                "b5374e10.18ffc",
+                "5278cddb.34662c"
+            ]
+        ]
+    },
+    {
+        "id": "5278cddb.34662c",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 2800,
+        "wires": [
+            [
+                "1f04250c.202d33",
+                "b5374e10.18ffc"
+            ],
+            [
+                "7081e1e0.a296b8",
+                "11010b69.745cbd",
+                "95701947.3e285"
+            ]
+        ]
+    },
+    {
+        "id": "95701947.3e285",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 2860,
+        "wires": [
+            [
+                "7081e1e0.a296b8",
+                "11010b69.745cbd"
+            ],
+            [
+                "9342c434.c1146",
+                "f9b019af.7ee688",
+                "af85d84f.9b45f8"
+            ]
+        ]
+    },
+    {
+        "id": "6e292a24.89aa64",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "700",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 3100,
+        "wires": [
+            [
+                "713dff6b.6ee488"
+            ]
+        ]
+    },
+    {
+        "id": "492b182b.500b48",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 3100,
+        "wires": [
+            [
+                "95acd147.1faa38"
+            ]
+        ]
+    },
+    {
+        "id": "713dff6b.6ee488",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "After Outer",
+        "links": [
+            "aa5a5574.7386c8"
+        ],
+        "x": 555,
+        "y": 3060,
+        "wires": []
+    },
+    {
+        "id": "aa5a5574.7386c8",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "After Outer",
+        "links": [
+            "713dff6b.6ee488"
+        ],
+        "x": 375,
+        "y": 2680,
+        "wires": [
+            [
+                "eb5e6183.e0136",
+                "d911ff5d.c554b",
+                "43785be8.01b034"
+            ]
+        ]
+    },
+    {
+        "id": "ece9c919.a2015",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "In And Out",
+        "info": "The logic is simple enough. Starting from the middle, turn on 2 leds. Next step, move outward, turnning on the next 2 LEDS. Repeat until the outer 2 LEDs are on, then reverse until the centre 2 are on. At each step, turn off the leds that were turned on in the previous step. That means that each step manipulates the state of 4 LEDS, which makes for a lot of connections between nodes.",
+        "x": 120,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "af85d84f.9b45f8",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 2920,
+        "wires": [
+            [
+                "f9b019af.7ee688",
+                "9342c434.c1146"
+            ],
+            [
+                "11010b69.745cbd",
+                "7081e1e0.a296b8",
+                "4c7013c5.3639ac"
+            ]
+        ]
+    },
+    {
+        "id": "4c7013c5.3639ac",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 350,
+        "y": 2980,
+        "wires": [
+            [
+                "11010b69.745cbd",
+                "7081e1e0.a296b8"
+            ],
+            [
+                "b5374e10.18ffc",
+                "1f04250c.202d33",
+                "7343ca1.ed8cdb4"
+            ]
+        ]
+    },
+    {
+        "id": "24e27670.9feffa",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 41",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.1",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3400,
+        "wires": []
+    },
+    {
+        "id": "f59f7641.5218f",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 42",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.2",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3480,
+        "wires": []
+    },
+    {
+        "id": "cb6951cb.1988a8",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 43",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.3",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3320,
+        "wires": []
+    },
+    {
+        "id": "b58cf70c.beba4",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 44",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.4",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3240,
+        "wires": []
+    },
+    {
+        "id": "df6fd37c.601838",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 45",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.5",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "66118c2a.03988c",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 46",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.6",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3360,
+        "wires": []
+    },
+    {
+        "id": "cae8d403.668aa",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 47",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.7",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3520,
+        "wires": []
+    },
+    {
+        "id": "58031fa3.f5f438",
+        "type": "subflow:12108ba.004c674",
+        "z": "fb151912.0285c8",
+        "name": "LED 48",
+        "env": [
+            {
+                "name": "label",
+                "value": "l6.8",
+                "type": "str"
+            }
+        ],
+        "x": 760,
+        "y": 3440,
+        "wires": []
+    },
+    {
+        "id": "76e477ed.166bb",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Inner 1",
+        "links": [
+            "b3a37c95.4f50a"
+        ],
+        "x": 655,
+        "y": 3260,
+        "wires": [
+            [
+                "b58cf70c.beba4",
+                "df6fd37c.601838"
+            ]
+        ]
+    },
+    {
+        "id": "cab0bae7.e68518",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Inner 2",
+        "links": [
+            "e16573ec.3fa3f"
+        ],
+        "x": 655,
+        "y": 3340,
+        "wires": [
+            [
+                "cb6951cb.1988a8",
+                "66118c2a.03988c"
+            ]
+        ]
+    },
+    {
+        "id": "91dcc60c.8cd108",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Inner 3",
+        "links": [
+            "4e7d1dc8.bcd534"
+        ],
+        "x": 655,
+        "y": 3500,
+        "wires": [
+            [
+                "f59f7641.5218f",
+                "cae8d403.668aa"
+            ]
+        ]
+    },
+    {
+        "id": "f72db191.71da48",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Outer",
+        "links": [
+            "596158ff.6c89c"
+        ],
+        "x": 655,
+        "y": 3420,
+        "wires": [
+            [
+                "24e27670.9feffa",
+                "58031fa3.f5f438"
+            ]
+        ]
+    },
+    {
+        "id": "9ea16cff.2f0c88",
+        "type": "comment",
+        "z": "fb151912.0285c8",
+        "name": "In And Out",
+        "info": "In and out with simplified flow, by noticing that the LEDs are always manipulated in pairs. The same 2 are always turned on or off together. Group those together, so only a single message wire is needed to trigger the state change.",
+        "x": 120,
+        "y": 3220,
+        "wires": []
+    },
+    {
+        "id": "b90e95ed.580d68",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3580,
+        "wires": [
+            [
+                "e16573ec.3fa3f"
+            ],
+            [
+                "16b9e2a4.b39d3d"
+            ]
+        ]
+    },
+    {
+        "id": "b3a37c95.4f50a",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Inner 1",
+        "links": [
+            "76e477ed.166bb"
+        ],
+        "x": 615,
+        "y": 3260,
+        "wires": []
+    },
+    {
+        "id": "64c93d86.937d1c",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3280,
+        "wires": [
+            [
+                "b3a37c95.4f50a"
+            ],
+            [
+                "e16573ec.3fa3f",
+                "da99a985.615cd8"
+            ]
+        ]
+    },
+    {
+        "id": "e16573ec.3fa3f",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Inner 2",
+        "links": [
+            "cab0bae7.e68518"
+        ],
+        "x": 615,
+        "y": 3340,
+        "wires": []
+    },
+    {
+        "id": "da99a985.615cd8",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3340,
+        "wires": [
+            [
+                "e16573ec.3fa3f"
+            ],
+            [
+                "4e7d1dc8.bcd534",
+                "52936de9.8022e4"
+            ]
+        ]
+    },
+    {
+        "id": "4e7d1dc8.bcd534",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Inner 3",
+        "links": [
+            "91dcc60c.8cd108"
+        ],
+        "x": 615,
+        "y": 3500,
+        "wires": []
+    },
+    {
+        "id": "52936de9.8022e4",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3400,
+        "wires": [
+            [
+                "4e7d1dc8.bcd534"
+            ],
+            [
+                "596158ff.6c89c",
+                "8c6c6622.b808c8"
+            ]
+        ]
+    },
+    {
+        "id": "596158ff.6c89c",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Outer",
+        "links": [
+            "f72db191.71da48"
+        ],
+        "x": 615,
+        "y": 3420,
+        "wires": []
+    },
+    {
+        "id": "8c6c6622.b808c8",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3460,
+        "wires": [
+            [
+                "596158ff.6c89c"
+            ],
+            [
+                "74f71d70.a61fd4",
+                "4e7d1dc8.bcd534"
+            ]
+        ]
+    },
+    {
+        "id": "74f71d70.a61fd4",
+        "type": "subflow:aacf84f1.d893c8",
+        "z": "fb151912.0285c8",
+        "name": "Step",
+        "env": [],
+        "x": 370,
+        "y": 3520,
+        "wires": [
+            [
+                "4e7d1dc8.bcd534"
+            ],
+            [
+                "e16573ec.3fa3f",
+                "b90e95ed.580d68"
+            ]
+        ]
+    },
+    {
+        "id": "16b9e2a4.b39d3d",
+        "type": "link out",
+        "z": "fb151912.0285c8",
+        "name": "Last In Cycle",
+        "links": [
+            "2a71854c.ec1bf2"
+        ],
+        "x": 555,
+        "y": 3600,
+        "wires": []
+    },
+    {
+        "id": "2a71854c.ec1bf2",
+        "type": "link in",
+        "z": "fb151912.0285c8",
+        "name": "Last In Cycle",
+        "links": [
+            "16b9e2a4.b39d3d"
+        ],
+        "x": 395,
+        "y": 3220,
+        "wires": [
+            [
+                "64c93d86.937d1c",
+                "b3a37c95.4f50a"
+            ]
+        ]
+    },
+    {
+        "id": "3928586.dc118a8",
+        "type": "change",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 3620,
+        "wires": [
+            [
+                "16b9e2a4.b39d3d"
+            ]
+        ]
+    },
+    {
+        "id": "7e0407db.4d217",
+        "type": "inject",
+        "z": "fb151912.0285c8",
+        "name": "Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 3620,
+        "wires": [
+            [
+                "aa0ca0da.5e3e3"
+            ]
+        ]
+    },
+    {
+        "id": "aa0ca0da.5e3e3",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 260,
+        "y": 3620,
+        "wires": [
+            [
+                "3928586.dc118a8"
+            ]
+        ]
+    },
+    {
+        "id": "95acd147.1faa38",
+        "type": "delay",
+        "z": "fb151912.0285c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 260,
+        "y": 3100,
+        "wires": [
+            [
+                "6e292a24.89aa64"
+            ]
+        ]
+    }
+]
