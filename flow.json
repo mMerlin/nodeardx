@@ -1092,8 +1092,8 @@
         "min": "50",
         "max": "5000",
         "step": "50",
-        "x": 560,
-        "y": 1040,
+        "x": 520,
+        "y": 1100,
         "wires": [
             [
                 "a764aaca.26c1a8"
@@ -1119,14 +1119,13 @@
         "payloadType": "bool",
         "topic": "INITIALIZE",
         "x": 120,
-        "y": 1360,
+        "y": 1180,
         "wires": [
             [
                 "93ad1dee.53b3e8",
                 "d4b55764.035c7",
                 "528986e.9f449f8",
-                "de3c4424.a14a7",
-                "da1d057.c117d78"
+                "de3c4424.a14a7"
             ]
         ]
     },
@@ -1147,8 +1146,8 @@
         "min": "50",
         "max": "5000",
         "step": "50",
-        "x": 560,
-        "y": 1100,
+        "x": 520,
+        "y": 1160,
         "wires": [
             [
                 "27304f4a.28716"
@@ -1177,8 +1176,8 @@
         "height": 0,
         "passthru": true,
         "topic": "NEW_OFF_COLOUR",
-        "x": 570,
-        "y": 1220,
+        "x": 530,
+        "y": 1280,
         "wires": [
             [
                 "31938c6f.ecc79c"
@@ -1207,8 +1206,8 @@
         "height": 0,
         "passthru": true,
         "topic": "NEW_ON_COLOR",
-        "x": 570,
-        "y": 1160,
+        "x": 530,
+        "y": 1220,
         "wires": [
             [
                 "dfdbed18.a8b5f"
@@ -1227,8 +1226,8 @@
         "label": "led5",
         "format": "<font color={{msg.color}}>O</font>",
         "layout": "col-center",
-        "x": 570,
-        "y": 1360,
+        "x": 1130,
+        "y": 1280,
         "wires": []
     },
     {
@@ -1250,8 +1249,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 1040,
+        "x": 740,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -1275,8 +1274,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 1100,
+        "x": 740,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -1300,8 +1299,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 1160,
+        "x": 740,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -1325,8 +1324,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 1220,
+        "x": 740,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -1335,7 +1334,7 @@
         "id": "93ad1dee.53b3e8",
         "type": "change",
         "z": "2142dbf6.6e079c",
-        "name": "Default On Time",
+        "name": "On Time",
         "rules": [
             {
                 "t": "set",
@@ -1350,11 +1349,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1040,
+        "x": 300,
+        "y": 1100,
         "wires": [
             [
-                "f3098d6a.d66838"
+                "f3098d6a.d66838",
+                "54d1a564.6997c4"
             ]
         ]
     },
@@ -1362,7 +1362,7 @@
         "id": "d4b55764.035c7",
         "type": "change",
         "z": "2142dbf6.6e079c",
-        "name": "Default Off Time",
+        "name": "Off Time",
         "rules": [
             {
                 "t": "set",
@@ -1377,11 +1377,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1100,
+        "x": 300,
+        "y": 1160,
         "wires": [
             [
-                "3ef3b177.747476"
+                "3ef3b177.747476",
+                "54d1a564.6997c4"
             ]
         ]
     },
@@ -1389,7 +1390,7 @@
         "id": "528986e.9f449f8",
         "type": "change",
         "z": "2142dbf6.6e079c",
-        "name": "Default On Colour",
+        "name": "On Colour",
         "rules": [
             {
                 "t": "set",
@@ -1404,11 +1405,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1160,
+        "x": 310,
+        "y": 1220,
         "wires": [
             [
-                "31a7e51.ed35d1a"
+                "31a7e51.ed35d1a",
+                "54d1a564.6997c4"
             ]
         ]
     },
@@ -1416,7 +1418,7 @@
         "id": "de3c4424.a14a7",
         "type": "change",
         "z": "2142dbf6.6e079c",
-        "name": "Default Off Colour",
+        "name": "Off Colour",
         "rules": [
             {
                 "t": "set",
@@ -1431,101 +1433,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1220,
-        "wires": [
-            [
-                "e141cbd6.763128"
-            ]
-        ]
-    },
-    {
-        "id": "b0589301.9daf7",
-        "type": "inject",
-        "z": "2142dbf6.6e079c",
-        "name": "Inspect",
-        "topic": "INSPECT",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 350,
+        "x": 310,
         "y": 1280,
         "wires": [
             [
-                "46db9d81.28d28c"
-            ]
-        ]
-    },
-    {
-        "id": "e6bf66a0.2c8b3",
-        "type": "debug",
-        "z": "2142dbf6.6e079c",
-        "name": "Dynamic Context",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 750,
-        "y": 1280,
-        "wires": []
-    },
-    {
-        "id": "46db9d81.28d28c",
-        "type": "change",
-        "z": "2142dbf6.6e079c",
-        "name": "Get Flow Context",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "payload.onTime",
-                "pt": "msg",
-                "to": "onTime",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "payload.offTime",
-                "pt": "msg",
-                "to": "offTime",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "payload.onColour",
-                "pt": "msg",
-                "to": "onColour",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "payload.offColour",
-                "pt": "msg",
-                "to": "offColour",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 530,
-        "y": 1280,
-        "wires": [
-            [
-                "e6bf66a0.2c8b3"
+                "e141cbd6.763128",
+                "54d1a564.6997c4"
             ]
         ]
     },
@@ -1544,8 +1457,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 520,
-        "y": 1440,
+        "x": 940,
+        "y": 1160,
         "wires": [
             [
                 "f0b6ec2b.0f5478"
@@ -1567,8 +1480,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 160,
-        "y": 1440,
+        "x": 940,
+        "y": 1280,
         "wires": [
             [
                 "f75c779e.116bb8"
@@ -1601,12 +1514,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
-        "y": 1440,
+        "x": 940,
+        "y": 1340,
         "wires": [
             [
                 "300d2635.d8c2c2",
-                "5a782e28.1509f8"
+                "2939f469.bfc99c"
             ]
         ],
         "info": "Set the \"LED\" colour, and delay time for the \"ON\" state"
@@ -1637,8 +1550,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
-        "y": 1440,
+        "x": 940,
+        "y": 1220,
         "wires": [
             [
                 "300d2635.d8c2c2",
@@ -1648,37 +1561,13 @@
         "info": "Set the \"LED\" colour, and delay time for the \"OFF\" state"
     },
     {
-        "id": "da1d057.c117d78",
-        "type": "delay",
-        "z": "2142dbf6.6e079c",
-        "name": "Sync",
-        "pauseType": "delay",
-        "timeout": "20",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 270,
-        "y": 1360,
-        "wires": [
-            [
-                "f75c779e.116bb8"
-            ]
-        ],
-        "info": "Make sure that the initialization has finished setting the values for the flow context before trying to use them"
-    },
-    {
         "id": "9a01a051.3c26a",
         "type": "comment",
         "z": "2142dbf6.6e079c",
         "name": "Blink 5",
         "info": "Use flow context values (variables) that can be adjusted from the dashboard will the flow is running",
-        "x": 130,
-        "y": 1060,
+        "x": 110,
+        "y": 1100,
         "wires": []
     },
     {
@@ -5116,5 +5005,271 @@
                 "6e292a24.89aa64"
             ]
         ]
+    },
+    {
+        "id": "ea62b8ed.7476a",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "LED 6",
+        "label": "led6",
+        "format": "<font color={{msg.payload}}>O</font>",
+        "layout": "col-center",
+        "x": 610,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "a939411e.f8bf98",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 270,
+        "y": 1460,
+        "wires": [
+            [
+                "9650a8b7.27b34"
+            ]
+        ]
+    },
+    {
+        "id": "9650a8b7.27b34",
+        "type": "trigger",
+        "z": "2142dbf6.6e079c",
+        "op1": "blue",
+        "op2": "white",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "Pulse",
+        "x": 440,
+        "y": 1460,
+        "wires": [
+            [
+                "ea62b8ed.7476a"
+            ]
+        ]
+    },
+    {
+        "id": "fc4a91d7.f4433",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 6",
+        "info": "The injection node can be configured to repeat a message at a specified interval. The smallest units for the interval are seconds, but fractional values work fine. 0.5 seconds instead of 500 milliseconds.  The trigger node sends 2 distinct messages with a configurable interval between them.  Those 2 combined create a complete blink pattern. The injection interval is the time for the complete cylcle (on and off times), the trigger delay in the on time.\n\nThe trigger node is set to issue \"on\" and \"off\" messages. In this setup, than means to send \"red\" and \"white\" colors. The content of the trigger message is always/only in the payload, so the simulated LED needs to listen for it there, instead of in the msg.color value used earlier.",
+        "x": 110,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "51e02dfb.dfdefc",
+        "type": "inject",
+        "z": "2142dbf6.6e079c",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "1.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 270,
+        "y": 1580,
+        "wires": [
+            [
+                "a8f63588.648888"
+            ]
+        ]
+    },
+    {
+        "id": "73a90b57.8e8bcc",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink 7",
+        "info": "Borrowing the logic from the \"simple LED\" subflow created while working on the multiple LEDs example flows, the trigger node from the \"Blink 6\" example can be changed to output the more generic boolean \"true\" for on, and \"false\" for off payload values. This matches what a real switchable LED (Hooked to an Arduino digital output pin) would expect. The LED knows what the on and off colour values are. The blink just tells it to use them.",
+        "x": 110,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "a8f63588.648888",
+        "type": "trigger",
+        "z": "2142dbf6.6e079c",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "500",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "Pulse",
+        "x": 450,
+        "y": 1580,
+        "wires": [
+            [
+                "cc0099a9.02a65"
+            ]
+        ]
+    },
+    {
+        "id": "b9910f5f.18e788",
+        "type": "ui_text",
+        "z": "2142dbf6.6e079c",
+        "group": "414b56c5.cc808",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "name": "LED 7",
+        "label": "led7",
+        "format": "<font color={{msg.color}}>O</font>",
+        "layout": "col-center",
+        "x": 810,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "cc0099a9.02a65",
+        "type": "change",
+        "z": "2142dbf6.6e079c",
+        "name": "Set State Colour",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "msg.payload ? \"red\" :\"white\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1580,
+        "wires": [
+            [
+                "b9910f5f.18e788"
+            ]
+        ],
+        "inputLabels": [
+            "LED state"
+        ],
+        "info": "Use JSONata ternary operator to select the source for the colour value from that available (subflow) properties."
+    },
+    {
+        "id": "54d1a564.6997c4",
+        "type": "join",
+        "z": "2142dbf6.6e079c",
+        "name": "Wait Init",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ";",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 540,
+        "y": 1340,
+        "wires": [
+            [
+                "f75c779e.116bb8"
+            ]
+        ],
+        "info": "Wait until all of the inialization has finished"
+    },
+    {
+        "id": "2939f469.bfc99c",
+        "type": "link out",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink5 On",
+        "links": [
+            "5d6890ec.c6af78"
+        ],
+        "x": 1075,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "5d6890ec.c6af78",
+        "type": "link in",
+        "z": "2142dbf6.6e079c",
+        "name": "Blink5 On",
+        "links": [
+            "2939f469.bfc99c"
+        ],
+        "x": 895,
+        "y": 1100,
+        "wires": [
+            [
+                "5a782e28.1509f8"
+            ]
+        ]
+    },
+    {
+        "id": "2575acba.206404",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Default Values",
+        "info": "Initialize the values to use when flow starts",
+        "x": 310,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "6b9970d5.5cded8",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Dashboard Controls",
+        "info": "Set of controls (on Dashboard) to change the configuration settings while the flow is running",
+        "x": 530,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "e231c8f9.669bb8",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Save Changes",
+        "info": "Save any configuration settings that have been changed on the Dashboard",
+        "x": 740,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3960053a.09c69a",
+        "type": "comment",
+        "z": "2142dbf6.6e079c",
+        "name": "Standard Blink",
+        "info": "A version of the regular blink flow, but using values colour and time values from the stored flow context",
+        "x": 960,
+        "y": 1040,
+        "wires": []
     }
 ]
