@@ -5,5 +5,4 @@ Flows comparible to the ARDX kit experiments
 
 ### About
 
-This is your project's README.md file. It helps users understand what your
-project does, how to use it and anything else they may need to know.
+Exploring Node-RED flows that do that same as, or simulate, the experiments from the [ARDX](https://wcrsyyc.github.io/ardx/) kit. Initially this is demonstrating the logic needed to match the functionality of the experiment sketches. Keeping the structure such that the currently simulated hardware could be easily replaced by an interface to the real thing.

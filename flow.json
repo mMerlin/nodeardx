@@ -1565,7 +1565,7 @@
         "type": "comment",
         "z": "2142dbf6.6e079c",
         "name": "Blink 5",
-        "info": "Use flow context values (variables) that can be adjusted from the dashboard will the flow is running",
+        "info": "Use flow context values (variables) that can be adjusted from the dashboard while the flow is running",
         "x": 110,
         "y": 1100,
         "wires": []
@@ -5237,7 +5237,7 @@
         "type": "comment",
         "z": "2142dbf6.6e079c",
         "name": "Default Values",
-        "info": "Initialize the values to use when flow starts",
+        "info": "Initialize the values to use when the flow starts",
         "x": 310,
         "y": 1040,
         "wires": []
@@ -5267,7 +5267,7 @@
         "type": "comment",
         "z": "2142dbf6.6e079c",
         "name": "Standard Blink",
-        "info": "A version of the regular blink flow, but using values colour and time values from the stored flow context",
+        "info": "A version of the regular blink flow, but using colour and time values from the stored flow context",
         "x": 960,
         "y": 1040,
         "wires": []
